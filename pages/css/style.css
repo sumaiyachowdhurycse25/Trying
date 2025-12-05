@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root
+{
+    --pink:#ef5777;
+    --white:#fff;
+    --black:#222;
+    --transparent-white:rgba(255, 255, 255, 0.3);
+    --border:.2rem solid var(--black);
+    --box-shadow:0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+html
+{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}   
+
+html::-webkit-scrollbar
+{
+    width: 1rem;
+}   
+
+html::-webkit-scrollbar-track
+{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb
+{
+    background: var(--pink);
+  
+}
+
+body{
+    background: url(../images/1.PNG) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.container{
+    border-radius: .5rem;
+    overflow: hidden;
+    background: var(--transparent-white);
+    backdrop-filter: blur(.5rem);
+    max-width: 1200px;
+    margin:10rem auto;
+    box-shadow: var(--box-shadow);
+}
+
+
+.btn{
+    display: inline-block;
+    padding:1rem 3rem;
+    border: var(--border);
+    font-size: 1.7rem;
+    color: var(--black);
+    background: var(--transparent-white);
+    border-radius: .5rem;
+    text-transform: capitalize;
+    margin-top: 1rem;
+}
+.btn:hover{
+    background: var(--black);
+    color: var(--white);
+}
+
+
+section{
+    padding: 2rem;
+    
+}
+.header{
+    position: relative;
+    z-index: 1000;
+    background: var(--transparent-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .logo{
+    font-size: 2.5rem;
+    color: var(--black);
+    }
+.header .navbar a{
+    font-size: 2rem;
+    color: var(--black);
+    margin-left: 2rem;
+    }
+.header .navbar a:hover{
+    color: var(--pink);
+    }    
+#menu-btn{
+    font-size: 2.5rem;
+    color: var(--black);
+    cursor: pointer;
+    display: none;
+}
+
+
+@media (max-width:1200px){
+    .container{
+        margin:5rem 10rem;
+    }
+}
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .container{
+        margin:5rem;
+        padding-bottom: 30rem;
+    }
+}
+
+@media (max-width:768px){
+   #menu-btn{
+        
+    display: inline-block;
+    transition: .2s linear;
+   }
+   #menu-btn.fa-times{
+          transform: rotate(180deg);
+     }  
+
+
+    .header .navbar{
+        position: absolute;
+        top:99%; left:0; right:0;
+        background: var(--white);
+        border-top: var(--border);
+        padding:2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    .header .navbar{
+        position: absolute;
+        top:100%;
+        right: -100%;
+        width: 100%;
+        background: var(--transparent-white);
+        flex-direction: column;
+        border-top: var(--border);
+        transition: .3s ease;
+    }
+   
+    .header .navbar a{
+        margin:2rem;
+        font-size: 2.5rem;
+        display: block;
+        text-align: center;
+    }
+}
+
+.home{
+    padding-bottom: 0;
+
+}
+
+
+.home .slide{
+    min-height: 50rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+.home .slide .content{
+    background: var(--transparent-white);
+    border-radius: .5rem;
+    backdrop-filter: blur(.5rem);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding: 2rem;
+    width: 50rem;
+}
+
+.home .slide .content h3{
+    font-size: 3rem;
+    color: var(--black);
+    text-transform: uppercase;
+    }
+.home .slide .content p{
+    font-size: 1.5rem;  
+    color: var(--black);
+    padding:1rem 0;
+    line-height: 2;
+}
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.pricing .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+  
+    }  
+.pricing .box-container .box{
+    background: var(--transparent-white);
+    padding:2rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    }   
+
+.pricing .box-container .box h3{
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: uppercase;
+    
+    }
+
+.pricing .box-container .box .price{    
+    font-size: 3rem;
+    color: var(--white);
+    padding:1rem;
+    border-radius: .5rem;
+    background: var(--pink);
+    margin:1rem 0;
+    }    
+.pricing .box-container .box .list p{
+    font-size: 1.5rem;
+    color: var(--black);
+    padding:1rem 0;
+    
+    }
+.pricing .box-container .box .list p i{
+    color: var(--pink);
+    padding-right: .5rem;
+    }   
+.about {
+    background: rgba(251, 232, 222, 0.52);
+    
+    padding: 100px 0 20px 0;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1rem;
+    color: #323030;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-info {
+    margin: 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.about-img {
+    width: 50rem;
+    height: 50rem;
+
+}
+
+.about-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.about-info p {
+    font-size: 2rem;
+    margin: 0 2rem;
+    text-align: justify;
+}
+.team {
+    background: rgba(251, 232, 222, 0.52);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.team h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 25rem;
+    height: 25rem;
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+    width: 25rem;
+    height: 12rem;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.card-info button {
+    margin: 2rem 1rem;
+}
+
+.card-name {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.card-role {
+    font-size: 1rem;
+    color: #888;
+    margin: 5px 0;
+}
+
+.card-email {
+    font-size: 1rem;
+    color: #555;
+}
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive columns */
+  gap: 250px; /* Adds space between grid items */
+}
+
+.image-grid figure {
+  margin: 30; /* Removes default figure margin */
+}
+
+.image-grid img {
+ 
+    width: 1000%;
+  height: 100%;
+  display: block; /* Removes extra space below the image */
+  
+}
+
+.image-grid figcaption {
+    
+  text-align: center; /* Centers the caption text */
+  
+   /* Example background for the caption */
+}
+.portfolio {
+    background: rgba(251, 232, 222, 0.52);
+    
+    padding: 100px 0 20px 0;
+    text-align: center;
+}
+
+.portfolio h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.portfolio p {
+    font-size: 3rem;
+    color: #323030;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer{
+    
+    background: var(--transparent-white);
+    
+    }    
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+  
+    }   
+ .footer .box-container .box h3{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    color: var(--black);
+    padding: 1rem 0;
+    
+    }
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    color: var(--black);
+    margin: 1rem 0;
+    }     
+.footer .box-container .box a i{
+    color: var(--pink);
+    padding-right: .5rem;
+    transition: .2s linear;
+    }
+.footer .box-container .box a:hover i{
+    padding-right: 1.5rem;
+} 
+.footer .credit{
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: var(--border);
+    color: var(--black);
+    font-size: 2rem;
+    }
+    .footer .credit span{
+        color: var(--pink);
+    }
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+    .container{
+        margin:2rem;
+        padding-bottom: 20rem;
+    }
+}
+
+
+
+
